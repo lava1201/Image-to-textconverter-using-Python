@@ -1,0 +1,21 @@
+pip install Pillow pytesseract
+!apt-get install tesseract-ocr
+!apt-get install libtesseract-dev
+!pip install pytesseract
+from PIL import Image
+import pytesseract
+
+# Defining path to Tesseract executable
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"  # Update this path if needed
+
+# Image path
+image_path = "/content/Screenshot (415).png"  # Update this path
+
+# Open the image
+img = Image.open(image_path)
+
+# Extract text from the image
+text = pytesseract.image_to_string(img)
+
+# Display the extracted text
+print(text)
